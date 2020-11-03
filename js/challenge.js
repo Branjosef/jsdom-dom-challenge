@@ -53,19 +53,8 @@ heart.addEventListener('click', function(){
      let num = parseInt(li.textContent.split(' ')[4])
      num += 1
      li.textContent = `${li.id} has been liked ${num} times`
-    } else {
-      let li = document.createElement('li');
-      li.id = counter.innerText
-      likeList.appendChild(li);
-      li.textContent = `${li.id} has been liked 1 times`
-      console.log("li captured")
-    }} else {
-    let li = document.createElement('li');
-    li.id = counter.innerText
-    likeList.appendChild(li);
-    li.textContent = `${li.id} has been liked 1 times`
-    console.log("li captured")
-  }
+    } else { like()}} 
+    else {like()}
   }) 
 
 form.addEventListener('submit', function(event) {
@@ -76,6 +65,15 @@ form.addEventListener('submit', function(event) {
   divComment.appendChild (input);
   input.textContent =inputBox.value;
 });
+
+function like () {
+  const likeList = document.querySelector('.likes');
+  let li = document.createElement('li');
+  li.id = counter.innerText
+  likeList.appendChild(li);
+  li.textContent = `${li.id} has been liked 1 times`
+  console.log("li captured")
+}
 
 
 };
