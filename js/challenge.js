@@ -46,11 +46,27 @@ plus.addEventListener('click', function() {
  });
 
 heart.addEventListener('click', function(){
-  const li = document.createElement('li');
   const likeList = document.querySelector('.likes');
-  likeList.appendChild(li);
-  li.textContent = `${counter.innerText} has been liked`;
-});
+  if (document.querySelectorAll('li').length > 0){
+    if(document.getElementById(`${counter.innerText}`)){
+     let li = document.getElementById(`${counter.innerText}`)
+     let num = parseInt(li.textContent.split(' ')[4])
+     num += 1
+     li.textContent = `${li.id} has been liked ${num} times`
+    } else {
+      let li = document.createElement('li');
+      li.id = counter.innerText
+      likeList.appendChild(li);
+      li.textContent = `${li.id} has been liked 1 times`
+      console.log("li captured")
+    }} else {
+    let li = document.createElement('li');
+    li.id = counter.innerText
+    likeList.appendChild(li);
+    li.textContent = `${li.id} has been liked 1 times`
+    console.log("li captured")
+  }
+  }) 
 
 form.addEventListener('submit', function(event) {
   event.preventDefault();
